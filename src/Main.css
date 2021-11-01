@@ -1,0 +1,24 @@
+body{
+background-color: aqua;
+
+}
+.card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+.logoHome{
+    padding-top: 5px;
+width: 90px;
+height: 90px;
+object-fit: cover;
+    }
+
+    .carousel-item{
+      
+        width: 500px;
+        height: 400px;
+        object-fit: cover;
+
+    }
