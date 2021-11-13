@@ -5,9 +5,10 @@ import Contact from './vistas/Contact';
 import Home from "./vistas/Home";
 import NotFound from "./vistas/NotFound";
 import Heroes from './vistas/Heroes';
-import ProductDetalle from './vistas/ProductDetalle';
+import HeroesDetalle from './vistas/HeroesDetalle';
 import InjectContext from './store/appContext';
 import Planetas from './vistas/Planetas';
+import PlanetasDetalle from './vistas/PlanetasDetalle';
 
 
 
@@ -27,7 +28,10 @@ const Main = () => {
        <Route exact path="/About" component={About} />
        <Route exact path="/" component={Home} />
        <Route exact path="/Heroes" component={Heroes} />
-       <Route exact path="/Product/:product_id/ProductDetalle" component={ProductDetalle} />
+       <Route exact path="/Heroes/:product_id/HeroesDetalle" component={HeroesDetalle} />
+       <Route exact path="/Planetas/:id/PlanetasDetalle" component={PlanetasDetalle} />
+
+
         <Route component={NotFound} />
 
         

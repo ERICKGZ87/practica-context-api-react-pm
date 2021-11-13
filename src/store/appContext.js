@@ -23,7 +23,7 @@ const InjectContext = PassedComponen => {
         useEffect(() => {
          
            state.actions.getHeroes("https://www.swapi.tech/api/people/");
-  
+           state.actions.getPlanetas("https://www.swapi.tech/api/planets/");
            
            
         }, [])

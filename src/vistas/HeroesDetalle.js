@@ -5,7 +5,8 @@ import { Context } from "../store/appContext";
 import CardHeroesDetalles from "../componentes/CardHeroesDetalle";
 
 
-const ProductDetalle = (props) => {
+
+const HeroesDetalle = (props) => {
     const { store, actions } = useContext(Context);
 
     const Historia = useHistory()
@@ -13,7 +14,10 @@ const ProductDetalle = (props) => {
 
     const { product_id } = useParams();
 
-    actions.getHeroesDetalles(product_id)
+    actions.getHeroesDetalles(product_id);
+ 
+  
+
 
     const [selected, setSelected] = useState(null);
 
@@ -34,17 +38,15 @@ const ProductDetalle = (props) => {
  let data=images.find((prod) => prod.id === parseInt(product_id));
     //const SelectedProd = store.HeroesDetalles.find((prod) => prod.id === parseInt(product_id));
     //setSelected(SelectedProd);
-    console.log(data);
+ 
 
 
         return (
             <div className="container">
     
                 <div className="row">
-    
-                    <div className="col-md-4">
-                    </div>
-                    <div className="col-md-4">
+
+                    <div className="col-md-11">
                            <h1>{store.HeroesDetalles.name}</h1>
 
                            <CardHeroesDetalles
@@ -59,11 +61,11 @@ const ProductDetalle = (props) => {
                          <button className="btn btn-warning"
                             onClick={Historia.goBack}>
                             Regresar
+                          
                         </button>
-                       
+                  
                     </div>
-                    <div className="col-md-4">
-                    </div>
+                    
     
     
     
@@ -85,4 +87,4 @@ const ProductDetalle = (props) => {
 
 }
 
-export default ProductDetalle;
+export default HeroesDetalle;

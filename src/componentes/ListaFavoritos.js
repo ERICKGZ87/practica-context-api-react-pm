@@ -13,9 +13,9 @@ const ListaFavoritos = ({id,data}) => {
     return (
         <ul className="list-group">
         <li className="list-group-item" aria-current="true">
-          <h1>Favoritos</h1>
+          <h1>Favoritos <img src="/star.jpg" id="logoboton"></img></h1>
         </li>
-        <li className="list-group-item">{data+","}</li>
+        <li className="list-group-item" key={id}>{data+","}</li>
       
       </ul>
       

@@ -7,9 +7,35 @@ const Planetas = () => {
     return (
         <>
             <div className="container">
-            <h1>Lista de planetas</h1>
+
+
                 <div className="row">
-                   
+                    <h1>Lista de planetas</h1>
+                    {
+                        store.Planetas !== null &&
+                        store.Planetas.map((prod) => {
+
+                            return (
+                                <>
+
+                                    <div className="col-sm-4 py-2" key={prod.uid}>
+
+                                        <CardPlaneta
+
+                                            nombre={prod.name}
+                                            id={prod.uid}
+                                         
+                                        />
+                                
+
+                                    </div>
+                                </>
+                            )
+                        })
+                    }
+
+
+
 
                 </div>
             </div>
