@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { useContext } from "react";
+import { useContext} from "react";
 import { Context } from "../store/appContext";
+import CardHeroesDetalles from "../componentes/CardHeroesDetalle";
+
 
 const ProductDetalle = (props) => {
     const { store, actions } = useContext(Context);
@@ -11,73 +13,74 @@ const ProductDetalle = (props) => {
 
     const { product_id } = useParams();
 
-    /*const [images,setImages] = useState ([
-        {id:1,Url:"https://images.unsplash.com/photo-1553456558-aff63285bdd1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80"},
-        {id:2,Url:"https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=415&q=80"},
-        {id:3,Url:"https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"},
-        {id:4,Url:"https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"}
-    ])*/
+    actions.getHeroesDetalles(product_id)
+
     const [selected, setSelected] = useState(null);
 
-    useEffect(() => {
-        // console.log(product_id)
-        //const SelectedProd = images.find((prod)=>prod.id == product_id);
+    const [images, setImages] = useState ([
 
-        const SelectedProd = store.Heroes
-        .find((prod) => prod.id === parseInt(product_id));
-        setSelected(SelectedProd);
-    }, [])
+        {id: 1, url: "https://c8.alamy.com/compes/2b8w8da/star-wars-1977-lucasfilm-20th-century-fox-con-mark-hamill-como-luke-skywalker-2b8w8da.jpg"},
+        {id: 2, url: "https://media.revistagq.com/photos/5f50af1b9d4e3d875292aea3/3:2/w_1998,h_1332,c_limit/c3po.jpg"},
+        {id: 3, url: "https://m.media-amazon.com/images/I/61srwGulapL._AC_SX679_.jpg"},
+        {id: 4, url: "https://depor.com/resizer/KNPCpo2Jsd5qAuvru0EbJ8Sj-R0=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/Z7B7S4BVSZFJFPCI5Z4TZI7GQM.jpg"},
+        {id: 5, url: "http://pm1.narvii.com/6240/500eddc6a556ae64973ba2bbd2471bbbd86cd832_00.jpg"},
+        {id: 6, url: "http://pm1.narvii.com/6955/8de3ebe4060f25b47bb284ef0708886144d46dd8r1-377-382v2_00.jpg"},
+        {id: 7, url: "https://i2.wp.com/thefutureoftheforce.com/wp-content/uploads/2018/01/aunt-beru-header.jpg?resize=672%2C372&ssl=1.jpg"},
+        {id: 8, url: "http://pm1.narvii.com/6886/54c8e45f075cdb3ef82c3372fd380378c11c56dfr1-398-365v2_00.jpg"},
+        {id: 9, url: "https://lumiere-a.akamaihd.net/v1/images/image_606ff7f7.jpeg?region=0%2C0%2C1560%2C780"},
+        {id: 10, url: "https://www.latercera.com/resizer/QGuEqvFKJQUH3nq4SK11NcSdzTo=/375x250/smart/filters:focal(450x62:460x52)/cloudfront-us-east-1.images.arcpublishing.com/copesa/JHODGDNOINE2BFODBMDY55WKPE.jpg"},
+    ]);
 
-    return (
-        <div className="container">
+ let data=images.find((prod) => prod.id === parseInt(product_id));
+    //const SelectedProd = store.HeroesDetalles.find((prod) => prod.id === parseInt(product_id));
+    //setSelected(SelectedProd);
+    console.log(data);
 
-            <div className="row">
 
-                <div className="col-md-4">
-                </div>
-                <div className="col-md-4">
-                    <div className="card mb-4" style={{ maxWidth: 700 }}>
-                        <div className="row g-0">
-                            <div className="col-md-4">
-                                <img src={selected && selected.url} className="card-img-top img-fluid rounded-start" alt="..." />
-                            </div>
-                            <div className="col-md-8">
-                                <div className="card-body">
-                                    <h5 className="card-title">{selected && selected.name}</h5>
-                                    <p className="card-text">
-                                       
-                                    </p>
-                                    <p className="card-text">
-                                        <ul>
-                                            <li key={selected && selected.id}>Fuerza  {selected && selected.strength}</li>
-                                        </ul>
-                                    </p>
-                                    <p className="card-text">
-                                        <small className="text-muted">Last updated 3 mins ago</small>
-                                    </p>
-                                   
-                                </div>
-                                <button className="btn btn-warning"
-                                        onClick={Historia.goBack}>
-                                        Regresar
-                                    </button>
-                            </div>
-                        </div>
+        return (
+            <div className="container">
+    
+                <div className="row">
+    
+                    <div className="col-md-4">
                     </div>
+                    <div className="col-md-4">
+                           <h1>{store.HeroesDetalles.name}</h1>
+
+                           <CardHeroesDetalles
+                           url={data.url.toString()}
+                               altura={store.HeroesDetalles.height}
+                               masa={store.HeroesDetalles.mass}
+                               año={store.HeroesDetalles.birth_year}
+                               creado={store.HeroesDetalles.created}
+
+                           />
+
+                         <button className="btn btn-warning"
+                            onClick={Historia.goBack}>
+                            Regresar
+                        </button>
+                       
+                    </div>
+                    <div className="col-md-4">
+                    </div>
+    
+    
+    
                 </div>
-                <div className="col-md-4">
-                </div>
-
-
-
+    
+    
             </div>
-           
-            
-        </div>
+    
+    
+        )
 
 
-    )
 
+
+   
+
+   
 
 
 }

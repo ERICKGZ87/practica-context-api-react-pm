@@ -1,32 +1,23 @@
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
+import CardProduct from "../componentes/CardHeroes";
 import { Context } from "../store/appContext";
 
+
+
 const About = () => {
-    const { store } = useContext(Context);
+    const { store,actions } = useContext(Context);
 
 
     return (
         <>
             <div className="container">
                 <div className="row">
-                    <div className="col-md-12">
-                        <h1>About</h1>
-                        <ul className="list-group" style={{ width: '600px', margin: 'auto' }}>
-                            {
-                                !!store.users &&
-                                store.users.map((user) => {
-                                    return <li className="list-group-item list-group-item-action" key={user.id}>
-                                        {user.name}/
-                                        {user.email}/
-                                        {user.website}/
-                                        {user.phone}/
-                                    </li>;
+    
+                   
+                
 
-                                })
-                            }
-                        </ul>
 
-                    </div>
+                    
                 </div>
             </div>
         </>

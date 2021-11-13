@@ -3,12 +3,13 @@ import getState from "./Flux";
 
 
 
+
 export const Context = createContext(null);
 
 const InjectContext = PassedComponen => {
-
+   
     const StoreWrapper = props => {
-
+ 
         const [state, setState] = useState(getState({
 
             getStore: () => state.store,
@@ -20,7 +21,11 @@ const InjectContext = PassedComponen => {
         }));
         //este useEffect se ejecuta la primera vez q se carga la pagina
         useEffect(() => {
-            state.actions.getUsers("https://jsonplaceholder.typicode.com/users")
+         
+           state.actions.getHeroes("https://www.swapi.tech/api/people/");
+  
+           
+           
         }, [])
 
         return (

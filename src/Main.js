@@ -10,10 +10,13 @@ import InjectContext from './store/appContext';
 import Planetas from './vistas/Planetas';
 
 
+
 const Main = () => {
     return (
         <BrowserRouter>
         <Navbar/>
+
+   
        
 
       
