@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom";
 import PropType from "prop-types";
-import { useEffect } from "react-router-dom";
-import { useContext, useState } from "react";
-import { Context } from "../store/appContext";
 
 
-const CardHeroes = ({ id, titulo, descripcion }) => {
+const CardHeroes = ({ id, titulo, descripcion,Url }) => {
 
-    const { store, actions } = useContext(Context);
+
     return (
         <>
 
@@ -15,7 +12,8 @@ const CardHeroes = ({ id, titulo, descripcion }) => {
 
 
                 <div className="card-body">
-                <h5 className="card-title">Id: {id}</h5>
+                <img src={Url} className="card-img-top" alt="..." />
+                    <h5 className="card-title">Id: {id}</h5>
                     <h5 className="card-title">{titulo}</h5>
                     <p className="card-text">
                         {descripcion}

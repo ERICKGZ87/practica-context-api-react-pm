@@ -23,7 +23,7 @@ const Heroes = () => {
         {id: 9, url: "https://lumiere-a.akamaihd.net/v1/images/image_606ff7f7.jpeg?region=0%2C0%2C1560%2C780"},
         {id: 10, url: "https://www.latercera.com/resizer/QGuEqvFKJQUH3nq4SK11NcSdzTo=/375x250/smart/filters:focal(450x62:460x52)/cloudfront-us-east-1.images.arcpublishing.com/copesa/JHODGDNOINE2BFODBMDY55WKPE.jpg"},
     ]);
-    let data1=images.find((prod) => prod.id === parseInt(product_id));
+   
 
    { favoritos.map((valor, indice) => {
         return (
@@ -45,19 +45,19 @@ const Heroes = () => {
 
                 {
                     store.Heroes !== null &&
-                    store.Heroes.map((prod) => {
-                     
+                    store.Heroes.map((prode) => {
+                    let data1=images.find((prod) => prod.id === parseInt(prode.uid));
                         return (
                             <>
 
-                                <div className="col-sm-4 py-2" key={prod.uid}>
+                                <div className="col-sm-4 py-2" key={prode.uid}>
 
                                     <CardHeroes
-                                
-                                        titulo={prod.name}
-                                        id={prod.uid}
+                                Url={data1.url}
+                                        titulo={prode.name}
+                                        id={prode.uid}
                                     />
-                                    <button id="boton" className="btn btn-primary" style={{ marginBottom: 1 }} onClick={() => setfavoritos(favoritos.concat(prod.name))}>
+                                    <button id="boton" className="btn btn-primary" style={{ marginBottom: 1 }} onClick={() => setfavoritos(favoritos.concat(prode.name))}>
                                        <img src="/star.jpg" id="logoboton"></img>
                                     </button>
 
